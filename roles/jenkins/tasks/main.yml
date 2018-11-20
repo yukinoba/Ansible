@@ -1,5 +1,17 @@
 ---
 # tasks file for jenkins
+- name: remove java 1.7.0
+  yum:
+    name: java-1.7.0
+    enablerepo: epel
+    state: abscent
+
+- name: install java 1.8.0
+  yum:
+    name: java-1.8.0-openjdk-devel
+    enablerepo: epel
+    state: present
+
 - name: Import Jenkins GPG key
   rpm_key:
     state: present

@@ -1,11 +1,23 @@
 ---
 # tasks file for nodejs
 
-- name: Installing node and npm
+- name: remove nodejs
   yum:
-      name: "{{ item }}"
-      enablerepo: epel
-      state: installed
+    name: "{{ item }}"
+    enablerepo: epel
+    state: abscent
   with_items:
-      - nodejs
-      - npm
+    - nodejs
+    - npm
+
+- name: install nodejs 11.2.0
+    shell: rpm -Uvh https://rpm.nodesource.com//pub_11.x/el/6/x86_64/nodejs-11.2.0-1nodesource.x86_64.rpm
+
+#- name: Installing node and npm
+#  yum:
+#    name: "{{ item }}"
+#    enablerepo: epel
+#    state: installed
+#  with_items:
+#    - nodejs
+#    - npm
