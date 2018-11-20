@@ -4,7 +4,7 @@
   yum:
     name: java-1.7.0
     enablerepo: epel
-    state: abscent
+    state: absent
 
 - name: install java 1.8.0
   yum:
