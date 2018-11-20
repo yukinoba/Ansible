@@ -10,8 +10,15 @@
     - nodejs
     - npm
 
+- name: import nodejs repo 11.x
+  shell: curl -sL https://rpm.nodesource.com/setup_11.x | bash -
+
 - name: install nodejs 11.2.0
-  shell: rpm -Uvh https://rpm.nodesource.com//pub_11.x/el/6/x86_64/nodejs-11.2.0-1nodesource.x86_64.rpm
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - nodejs
 
 #- name: Installing node and npm
 #  yum:
